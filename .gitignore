@@ -1,0 +1,6 @@
+.vs/**
+**/*.dll
+**/*.pdb
+**/bin/**
+**/obj/**
+**/.VSCodeCounter/**
