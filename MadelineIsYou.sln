@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadelineIsYou", "MadelineIsYou\MadelineIsYou.csproj", "{601479C2-B033-4A79-9E0A-443C234703F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadelineIsYou", "MadelineIsYou\MadelineIsYou.csproj", "{601479C2-B033-4A79-9E0A-443C234703F9}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MadelineIsYouLexer", "MadelineIsYouLexer\MadelineIsYouLexer.shproj", "{AD778699-CDC4-4CBF-9A95-0A76A7BBCDDF}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MadelineIsYouAnalyzer", "MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.shproj", "{AD778699-CDC4-4CBF-9A95-0A76A7BBCDDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexerTestConsole", "LexerTestConsole\LexerTestConsole.csproj", "{32B62436-55FD-4F08-A93B-CE56A995C220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerTestConsole", "AnalyzerTestConsole\AnalyzerTestConsole.csproj", "{32B62436-55FD-4F08-A93B-CE56A995C220}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerUnitTest", "AnalyzerUnitTest\AnalyzerUnitTest.csproj", "{9EEAB518-1FE3-4838-99FC-56295C656B3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{32B62436-55FD-4F08-A93B-CE56A995C220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B62436-55FD-4F08-A93B-CE56A995C220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B62436-55FD-4F08-A93B-CE56A995C220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EEAB518-1FE3-4838-99FC-56295C656B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEAB518-1FE3-4838-99FC-56295C656B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEAB518-1FE3-4838-99FC-56295C656B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEAB518-1FE3-4838-99FC-56295C656B3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -31,8 +37,9 @@ Global
 		SolutionGuid = {79130DEA-E263-4D41-A8A1-EB0A8D960FE0}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		MadelineIsYouLexer\MadelineIsYouLexer.projitems*{32b62436-55fd-4f08-a93b-ce56a995c220}*SharedItemsImports = 5
-		MadelineIsYouLexer\MadelineIsYouLexer.projitems*{601479c2-b033-4a79-9e0a-443c234703f9}*SharedItemsImports = 5
-		MadelineIsYouLexer\MadelineIsYouLexer.projitems*{ad778699-cdc4-4cbf-9a95-0a76a7bbcddf}*SharedItemsImports = 13
+		MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems*{32b62436-55fd-4f08-a93b-ce56a995c220}*SharedItemsImports = 5
+		MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems*{601479c2-b033-4a79-9e0a-443c234703f9}*SharedItemsImports = 5
+		MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems*{9eeab518-1fe3-4838-99fc-56295c656b3e}*SharedItemsImports = 5
+		MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems*{ad778699-cdc4-4cbf-9a95-0a76a7bbcddf}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

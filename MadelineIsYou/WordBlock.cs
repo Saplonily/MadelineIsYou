@@ -7,7 +7,6 @@ public class WordBlock : Solid
 {
     public bool Moving { get; private set; }
     public string Word { get; }
-    public int ActiveCount { get; set; }
 
     public WordBlock(Vector2 position, string word)
         : base(position, 16, 16, false)
@@ -54,14 +53,10 @@ public class WordBlock : Solid
         return true;
     }
 
-    public void BeginNotify() => ActiveCount = 0;
-    public void NotifyActive() => ActiveCount += 1;
-    public void EndNotify() { }
-
     public override void Render()
     {
         base.Render();
-        Color c = ActiveCount > 0 ? Color.Yellow : Color.White;
+        Color c = Color.White;
         Draw.HollowRect(Collider, c);
         ActiveFont.Draw(Word, Position, Vector2.Zero, Vector2.One * 0.2f, Color.Red);
     }

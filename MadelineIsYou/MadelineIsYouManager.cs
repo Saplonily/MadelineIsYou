@@ -1,4 +1,4 @@
-﻿using Celeste.Mod.MadelineIsYou.Lexer;
+﻿using Celeste.Mod.MadelineIsYou.Analyze;
 
 namespace Celeste.Mod.MadelineIsYou;
 
@@ -7,18 +7,18 @@ public sealed class MadelineIsYouManager : Entity, IBoardProvider
 {
     private Level level;
     private Vector2 levelPos;
-    private Lexer.Lexer lexer;
+    private Analyzer analyzer;
     private AnalyzeResult lastResult;
 
     public MadelineIsYouManager()
     {
-        lexer = new();
-        lexer.RegisterNoun("madeline");
-        lexer.RegisterNoun("dashes");
-        lexer.RegisterVerb("is");
-        lexer.RegisterAdjective("you");
-        lexer.RegisterAdjective("two");
-        lexer.RegisterAdjective("one");
+        analyzer = new();
+        analyzer.RegisterNoun("madeline");
+        analyzer.RegisterNoun("dashes");
+        analyzer.RegisterVerb("is");
+        analyzer.RegisterQuality("you");
+        analyzer.RegisterQuality("two");
+        analyzer.RegisterQuality("one");
     }
 
     public override void Added(Scene scene)
@@ -43,14 +43,6 @@ public sealed class MadelineIsYouManager : Entity, IBoardProvider
 
     public void ApplyRules()
     {
-        if (HasFeature("dashes", "is", "two"))
-        {
-            level.Session.Inventory.Dashes = 2;
-        }
-        if (HasFeature("dashes", "is", "one"))
-        {
-            level.Session.Inventory.Dashes = 1;
-        }
     }
 
     public void TryAnalyzeScene()
@@ -66,28 +58,10 @@ public sealed class MadelineIsYouManager : Entity, IBoardProvider
         if (anyMoving)
             return;
 
-        lastResult = lexer.Analyze(this);
-        foreach (var entity in words)
-        {
-            var word = (WordBlock)entity;
-            word.BeginNotify();
-        }
-        foreach (var rule in lastResult.Rules)
-        {
-            foreach (var w in rule.RelatedWord)
-            {
-                var entity = (WordBlock)w.Parameter;
-                entity.NotifyActive();
-            }
-        }
-        foreach (var entity in words)
-        {
-            var word = (WordBlock)entity;
-            word.EndNotify();
-        }
+        lastResult = analyzer.Analyze(this);
     }
 
-    IEnumerable<BoardWord> IBoardProvider.EnumerateWords()
+    IEnumerable<LocatedWord> IBoardProvider.EnumerateWords()
     {
         var words = level.Tracker.GetEntities<WordBlock>();
         foreach (var entity in words)
@@ -95,21 +69,7 @@ public sealed class MadelineIsYouManager : Entity, IBoardProvider
             var word = (WordBlock)entity;
             int x = (int)((word.X - levelPos.X) / 16f);
             int y = (int)((word.Y - levelPos.Y) / 16f);
-            yield return new BoardWord(x, y, word.Word, word);
+            yield return new LocatedWord(x, y, word.Word);
         }
-    }
-
-    public bool HasFeature(string entity, string verb, string adjective)
-    {
-        if (lastResult is null) return false;
-        foreach (var rule in lastResult.Rules)
-        {
-            bool s = rule.Subject.AtomSubjects.Any(s => s is NounSubject nsbj && nsbj.Word == entity);
-            bool v = rule.Verb.Word == verb;
-            bool o = rule.Object.AtomObjects.Any(s => s is AdjectiveObject aobj && aobj.Word == adjective);
-
-            return s && v && o;
-        }
-        return false;
     }
 }

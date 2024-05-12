@@ -7,6 +7,6 @@
     <DefineConstants>$(DefineConstants);TestConsole</DefineConstants>
   </PropertyGroup>
 
-  <Import Project="..\MadelineIsYouLexer\MadelineIsYouLexer.projitems" Label="Shared" />
+  <Import Project="..\MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems" Label="Shared" />
 
 </Project>

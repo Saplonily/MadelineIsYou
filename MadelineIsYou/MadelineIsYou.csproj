@@ -21,7 +21,7 @@
 	  <Folder Include="ModFolder\Loenn\lang\" />
 	</ItemGroup>
 
-	<Import Project="..\MadelineIsYouLexer\MadelineIsYouLexer.projitems" Label="Shared" />
+	<Import Project="..\MadelineIsYouAnalyzer\MadelineIsYouAnalyzer.projitems" Label="Shared" />
 
 	<Import Project="CelesteMod.targets" />
 </Project>

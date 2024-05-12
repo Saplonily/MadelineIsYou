@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ad778699-cdc4-4cbf-9a95-0a76a7bbcddf</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>MadelineIsYouAnalyzer</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnalyzeResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LocatedWord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RulePartBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RuleParts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBoardProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Analyzer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Verb.cs" />
+  </ItemGroup>
+</Project>

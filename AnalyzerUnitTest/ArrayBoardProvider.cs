@@ -1,6 +1,6 @@
-﻿using Celeste.Mod.MadelineIsYou.Lexer;
+﻿using Celeste.Mod.MadelineIsYou.Analyze;
 
-namespace LexerTestConsole;
+namespace AnalyzerUnitTest;
 
 public sealed class ArrayBoardProvider : IBoardProvider
 {
@@ -11,14 +11,14 @@ public sealed class ArrayBoardProvider : IBoardProvider
         this.array = array;
     }
 
-    public IEnumerable<BoardWord> EnumerateWords()
+    public IEnumerable<LocatedWord> EnumerateWords()
     {
         for (int i = 0; i < array.GetLength(0); i++)
             for (int j = 0; j < array.GetLength(1); j++)
             {
                 var v = array[i, j];
                 if (!string.IsNullOrEmpty(v))
-                    yield return new BoardWord(j, i, array[i, j]);
+                    yield return new LocatedWord(j, i, array[i, j]);
             }
     }
 }
